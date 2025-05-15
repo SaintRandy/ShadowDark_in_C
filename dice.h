@@ -12,4 +12,8 @@
 
 extern unsigned int roll_dice(unsigned int top);
 
+extern unsigned int roll_d6();
+
+extern unsigned int roll_d10();
+
 #endif
