@@ -2,12 +2,15 @@
 #define SD_CREATURES
 #include <stdlib.h>
 
-/* Aligment has value from 1 to 10*/
-typedef unsigned int aligment;
-#define LAWFUL 1;
-#define NEUTRAL 5;
-#define CHAOTIC 10;
-#define UNALIGNED 0;
+/* Aligment has value from 0 to 10*/
+#define LAWFUL 1
+#define NEUTRAL 5
+#define CHAOTIC 9
+
+typedef struct creature {
+    unsigned int aligment;
+    unsigned int stat[6];
+} creature;
 
 typedef enum stats {
     STR,
@@ -25,4 +28,11 @@ typedef enum classes {
     WIZARD,
     CLASSLESS
 } classes;
+
+extern creature create_creature();
+
+extern void print_alligment(unsigned int aligment);
+
+extern void print_sheet(creature someone);
+
 #endif
