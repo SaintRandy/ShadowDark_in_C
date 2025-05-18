@@ -29,7 +29,7 @@ int free_eq_list(eq_list *node) {
         free(tmp);
     }
     
-    free(node);
+    return 0;
 }
 
 weapon conctrucor_weapon(unsigned dice, unsigned bonus, unsigned range[], unsigned type[], unsigned price) {
