@@ -19,7 +19,7 @@ int main() {
     print_sheet(victor_coi);
 
     printf("/\n\nMatch starts!\n\n");
-    while ((victor_coi.cur_hp >= 0) && (joe_peach.cur_hp >= 0))
+    while ((victor_coi.cur_hp > 0) && (joe_peach.cur_hp > 0))
     {
         printf("Victor Coi strikes the Joe!\n");
         creature_attack(victor_coi, victor_coi.unarmed, &joe_peach);
