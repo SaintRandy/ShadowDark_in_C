@@ -16,7 +16,7 @@ eq_list *initialize_eq_list() {
 
 eq_list *add_node_eq_list(eq_list *node) {
     if (node == NULL)
-        return 1;
+        return NULL;
     
     for (; node->next != NULL; node = node->next);
     
