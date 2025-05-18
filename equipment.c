@@ -5,17 +5,23 @@
 
 eq_list *initialize_eq_list() {
     eq_list *pointer = calloc(1, sizeof(eq_list));
+
+    if (pointer == NULL) {
+      fprintf(stderr, "Memory allocation for equipment failed!\n");
+      return NULL;
+    }
+
     return pointer;
 }
 
-int add_node_eq_list(eq_list *node) {
+eq_list *add_node_eq_list(eq_list *node) {
     if (node == NULL)
         return 1;
     
     for (; node->next != NULL; node = node->next);
     
     node->next = initialize_eq_list();
-    return 0;
+    return node->next;
 }
 
 int free_eq_list(eq_list *node) {

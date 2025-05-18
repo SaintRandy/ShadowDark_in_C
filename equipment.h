@@ -63,7 +63,7 @@ typedef struct equipment {
 typedef struct eq_list
 {
     equipment node;
-    equipment *next;
+    eq_list *next;
 } eq_list;
 
 extern weapon basic_unarmed(unsigned dice);
