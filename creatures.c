@@ -19,20 +19,12 @@ int count_modifier(unsigned stat){
 
 creature create_creature() {
     creature new;
-    new.stat[STR] = roll_stat();
-    new.stat[DEX] = roll_stat();
-    new.stat[CON] = roll_stat();
-    new.stat[INT] = roll_stat();
-    new.stat[WIS] = roll_stat();
-    new.stat[CHA] = roll_stat();
 
-    new.mod[STR] = count_modifier(new.stat[STR]);
-    new.mod[DEX] = count_modifier(new.stat[DEX]);
-    new.mod[CON] = count_modifier(new.stat[CON]);
-    new.mod[INT] = count_modifier(new.stat[INT]);
-    new.mod[WIS] = count_modifier(new.stat[WIS]);
-    new.mod[CHA] = count_modifier(new.stat[CHA]);
-
+    for (unsigned i = STR; i <= CHA; i++) {
+        new.stat[i] = roll_stat();
+        new.mod[i] = count_modifier(new.stat[i]);
+    }
+    
     return new;
 }
 
