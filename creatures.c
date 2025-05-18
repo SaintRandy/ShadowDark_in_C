@@ -3,11 +3,7 @@
 #include "creatures.h"
 #include "equipment.h"
 #include "dice.h"
-
- #define max(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
-     _a > _b ? _a : _b; })
+#include "macro.h"
 
 unsigned int roll_stat() {
     return roll_d6() + roll_d6() + roll_d6();
