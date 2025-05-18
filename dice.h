@@ -16,4 +16,6 @@ extern unsigned int roll_d6();
 
 extern unsigned int roll_d10();
 
+extern unsigned int roll_d20();
+
 #endif
