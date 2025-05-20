@@ -67,8 +67,7 @@ void creature_attack(creature attacker, weapon attack_weapon, creature *defender
     int damage;
     if ((attacker.mod[STR] + roll_d20()) > defender->basic_ac) {
         printf("Hit!\n");
-        damage = (int) (attacker.mod[STR] + roll_dice(attack_weapon.damage_dice) + attack_weapon.weapon_bonus);
-        defender->cur_hp -= damage;
+        defender->cur_hp -= max(0, (int) (attacker.mod[STR] + roll_dice(attack_weapon.damage_dice) + attack_weapon.weapon_bonus));
     } else {
         printf("Miss!\n");
     }
