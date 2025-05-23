@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "equipment.h"
 #include "dice.h"
 
@@ -44,10 +46,9 @@ weapon conctrucor_weapon(unsigned dice, unsigned bonus, unsigned range[], unsign
     new.damage_dice = dice;
     new.weapon_bonus = 0;
 
-    new._range[CLOSE] = range[CLOSE];
-    new._range[NEAR] = range[NEAR];
-    new._range[FAR] = range[FAR];
-
+    memcpy(new._range, range, sizeof(unsigned) * WEAPON_RANGE_SZ);
+    memcpy(new._type, type, sizeof(unsigned) * WEAPON_TYPE_SZ);
+    
     new._type[MELEE] = type[MELEE];
     new._type[RANGED] = type[RANGED];
     
@@ -58,5 +59,5 @@ weapon conctrucor_weapon(unsigned dice, unsigned bonus, unsigned range[], unsign
 
 
 weapon basic_unarmed(unsigned dice) {
-    return conctrucor_weapon(D4, 0, CLOSE_RANGED_WEAPON, MELEE_WEAPON, 0);
+    return conctrucor_weapon(dice, 0, CLOSE_RANGED_WEAPON, MELEE_WEAPON, 0);
 }

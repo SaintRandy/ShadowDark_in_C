@@ -1,5 +1,8 @@
 #ifndef SD_EQUIPMENT
 #define SD_EQUIPMENT
+#include "dice.h"
+
+const unsigned damage_dice_ref[] = {D12, D10, D8, D6, D4};
 
 typedef enum eq_type {
     WEAPON,
@@ -13,6 +16,7 @@ typedef enum range {
     FAR
 } range;
 
+#define WEAPON_RANGE_SZ 3
 #define CLOSE_RANGED_WEAPON (unsigned[]){1, 0, 0}
 
 /* Weapon type */
@@ -21,6 +25,7 @@ typedef enum w_type {
     RANGED
 } w_type;
 
+#define WEAPON_TYPE_SZ 2
 #define MELEE_WEAPON (unsigned[]){1, 0}
 #define RANGED_WEAPON (unsigned[]){0, 1}
 #define HYBRID_WEAPON (unsigned[]){1, 1}
