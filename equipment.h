@@ -2,7 +2,7 @@
 #define SD_EQUIPMENT
 #include "dice.h"
 
-const unsigned damage_dice_ref[] = {D12, D10, D8, D6, D4};
+extern const unsigned damage_dice_ref[];
 
 typedef enum eq_type {
     WEAPON,
