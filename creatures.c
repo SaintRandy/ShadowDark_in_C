@@ -3,7 +3,7 @@
 #include "creatures.h"
 #include "equipment.h"
 #include "dice.h"
-#include "macro.h"
+#include "utils.h"
 
 unsigned int roll_stat() {
     return roll_d6() + roll_d6() + roll_d6();
@@ -63,11 +63,15 @@ creature create_player_character(unsigned aligment, unsigned race, unsigned clas
     return new;
 }
 
+unsigned creature_check(unsigned stat){
+    return roll_d20() + stat;
+}
+
 void creature_attack(creature attacker, weapon attack_weapon, creature *defender) {
     int damage;
-    if ((attacker.mod[STR] + roll_d20()) > defender->basic_ac) {
+    if ((creature_check(attacker.mod[STR])) > defender->basic_ac) {
         printf("Hit!\n");
-        defender->cur_hp -= max(0, (int) (attacker.mod[STR] + roll_dice(attack_weapon.damage_dice) + attack_weapon.weapon_bonus));
+        defender->cur_hp -= max(0, (int) (roll_dice(attack_weapon.damage_dice) + attack_weapon.weapon_bonus));
     } else {
         printf("Miss!\n");
     }
