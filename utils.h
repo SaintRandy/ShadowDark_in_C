@@ -4,6 +4,6 @@
 
 #define max(a,b) ((a) > (b) ? (a) : (b))
 
-extern char valueinarray(unsigned val, unsigned *arr, size_t arr_s);
+extern unsigned char valueinarray(unsigned val, const unsigned *arr, size_t arr_s);
 
 #endif
